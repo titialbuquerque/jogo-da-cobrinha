@@ -1,0 +1,39 @@
+﻿  
+let canvas = document.getElementById("snake"); //criar elemento que irá rodar o jogo
+let context = canvas.getContext("2d"); //....
+let box = 32;
+let snake = []; //criar cobrinha como lista, já que ela vai ser uma série de coordenadas, que quando pintadas, criam os quadradinhos
+snake[0] ={
+    x: 8 * box,
+    y: 8 * box
+}
+let direction = "right";
+let food ={
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
+
+function criarBG(){
+    context.fillStyle = "lightgreen";
+    context.fillRect(0, 0, 16*box, 16*box); //desenha o retângulo usando x e y e a largura e altura setadas
+}
+
+function criarCobrinha (){
+    for(i = 0; i < snake.length; i++){
+        context.fillStyle = "green";
+        context.fillRect(snake[i].x, snake[i].y, box, box);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>SNAKE GAME!</h1>
+    <canvas id="snake" width="512" height="512"></canvas>
+</body>
+</html>
